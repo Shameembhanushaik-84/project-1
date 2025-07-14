@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>SmartAttend</h1>
+                <p id="current-date"></p>
+            </div>
+            <div class="header-right">
+                <span id="user-email"></span>
+                <button id="logout-btn" class="btn btn-danger">Logout</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="dashboard-main">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li class="active"><a href="#"><i class="icon">📊</i> Dashboard</a></li>
+                        <li><a href="#"><i class="icon">👥</i> Students</a></li>
+                        <li><a href="#"><i class="icon">📚</i> Courses</a></li>
+                        <li><a href="#"><i class="icon">📝</i> Attendance</a></li>
+                        <li><a href="#"><i class="icon">📈</i> Reports</a></li>
+                        <li><a href="#"><i class="icon">⚙</i> Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3 id="total-students">0</h3>
+                            <p>Total Students</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-info">
+                            <h3 id="total-courses">0</h3>
+                            <p>Active Courses</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3 id="today-present">0</h3>
+                            <p>Present Today</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-info">
+                            <h3 id="today-absent">0</h3>
+                            <p>Absent Today</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <section class="recent-activity">
+                    <h2>Recent Attendance</h2>
+                    <div class="table-container">
+                        <table id="attendance-table">
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Filled by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Mark Attendance -->
+                <section class="mark-attendance">
+                    <h2>Mark Attendance</h2>
+                    <div class="attendance-form">
+                        <div class="form-group">
+                            <label for="course-select">Select Course</label>
+                            <select id="course-select" class="form-control">
+                                <option value="">-- Select Course --</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date-input">Date</label>
+                            <input type="date" id="date-input" class="form-control">
+                        </div>
+                        <button id="load-students-btn" class="btn btn-primary">Load Students</button>
+                    </div>
+
+                    <div id="student-list-container" class="student-list-container" style="display: none;">
+                        <h3>Student List</h3>
+                        <div id="student-list" class="student-list">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                        <button id="submit-attendance-btn" class="btn btn-success">Submit Attendance</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/attendance.js"></script>
+</body>
+</html>
